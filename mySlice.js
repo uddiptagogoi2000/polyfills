@@ -2,8 +2,8 @@ Array.prototype.mySlice = function (start = 0, end = this.length) {
     const slice = [];
     // -ve cases
     // case 1: "one arg passed / start is passed"
-    start = start < 0 ? end + start : start; // hash start value -> converting -ve to corresponding +ve;
-    end = end < 0 ? end + end : end;
+    start = start < 0 ? this.length + start : start; // hash start value -> converting -ve to corresponding +ve;
+    end = end < 0 ? this.length + end : end;
     // start = !start || 0; // if start is out of bound i.e; start is less than 0
     if (start > end) {
         start = 0;
