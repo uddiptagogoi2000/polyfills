@@ -3,7 +3,6 @@ Array.prototype.mySlice = function (start = 0, end = this.length) {
     // -ve cases
     start = start < 0 ? this.length + start : start; // hash start value -> converting -ve to corresponding +ve;
     end = end < 0 ? this.length + end : end;
-    // start = !start || 0; // if start is out of bound i.e; start is less than 0
     if (start > end) {
         start = 0;
         end = 0;
@@ -21,3 +20,23 @@ Array.prototype.mySlice = function (start = 0, end = this.length) {
 
     return slice;
 };
+
+const animals = ["ant", "bison", "camel", "duck", "elephant"];
+
+console.log(animals.mySlice(2));
+// Expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.mySlice(2, 4));
+// Expected output: Array ["camel", "duck"]
+
+console.log(animals.mySlice(1, 5));
+// Expected output: Array ["bison", "camel", "duck", "elephant"]
+
+console.log(animals.mySlice(-2));
+// Expected output: Array ["duck", "elephant"]
+
+console.log(animals.mySlice(2, -1));
+// Expected output: Array ["camel", "duck"]
+
+console.log(animals.mySlice());
+// Expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
